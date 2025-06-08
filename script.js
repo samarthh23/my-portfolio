@@ -202,11 +202,13 @@ window.addEventListener('load', () => {
 });
 
 // Parallax effect for hero section
+// Replace the parallax effect code with this:
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     
-    if (hero) {
+    // Only apply parallax on larger screens
+    if (hero && window.innerWidth > 768) {
         hero.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
 });
