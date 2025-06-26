@@ -226,45 +226,41 @@ document.querySelectorAll('.skill-tag').forEach(tag => {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoading = submitBtn.querySelector('.btn-loading');
-    const formMessage = document.getElementById('formMessage');
+document.addEventListener("DOMContentLoaded", function () {
+  const contactForm = document.getElementById("contactForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const btnText = submitBtn.querySelector(".btn-text");
+  const btnLoading = submitBtn.querySelector(".btn-loading");
+  const formMessage = document.getElementById("formMessage");
 
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const subject = formData.get('subject');
-        const message = formData.get('message');
+  // ✅ Initialize EmailJS with your public key
+  emailjs.init("2L3g0GULPVN3DFmt3"); // replace this
 
-        // Show loading state
-        submitBtn.disabled = true;
-        btnText.style.display = 'none';
-        btnLoading.style.display = 'inline';
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-        // Create mailto link with form data
-        const mailtoLink = `mailto:samarthhegde45@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-        )}`;
+    // Show loading spinner
+    submitBtn.disabled = true;
+    btnText.style.display = "none";
+    btnLoading.style.display = "inline-block";
 
-        // Option 1: Open default email client
-        window.location.href = mailtoLink;
-
-        // Reset form and show success message
-        setTimeout(() => {
-            contactForm.reset();
-            submitBtn.disabled = false;
-            btnText.style.display = 'inline';
-            btnLoading.style.display = 'none';
-            
-            showMessage('Your email client has been opened. Please send the email to complete your message.', 'success');
-        }, 1000);
+    // ✅ Send form using EmailJS
+    emailjs.sendForm("service_tmidxqs", "template_6ymm754", contactForm)
+      .then(function (response) {
+        console.log("SUCCESS!", response.status, response.text);
+        contactForm.reset();
+        showMessage("Message sent successfully! I’ll get back to you soon.", "success");
+      })
+      .catch(function (error) {
+        console.log("FAILED...", error);
+        showMessage("Failed to send message. Please try again or contact me directly.", "error");
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        btnText.style.display = "inline";
+        btnLoading.style.display = "none";
+      });
+  });
         
 // Project cards tilt effect
 document.querySelectorAll('.project-card').forEach(card => {
