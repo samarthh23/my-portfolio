@@ -87,38 +87,23 @@ document.querySelectorAll('.project-card, .timeline-item, .cert-item, .education
     observer.observe(el);
 });
 
-// Form submission
-const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(contactForm);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const subject = formData.get('subject');
-    const message = formData.get('message');
-    
-    // Simple form validation
-    if (!name || !email || !subject || !message) {
-        showNotification('Please fill in all fields', 'error');
-        return;
-    }
-    
-    if (!isValidEmail(email)) {
-        showNotification('Please enter a valid email address', 'error');
-        return;
-    }
-    
-    // Simulate form submission
-    showNotification('Thank you for your message! I\'ll get back to you soon.', 'success');
-    contactForm.reset();
-});
-
 // Email validation function
 function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+}
+
+// Show message function (this was missing in your original code)
+function showMessage(message, type) {
+    const formMessage = document.getElementById('formMessage');
+    formMessage.textContent = message;
+    formMessage.className = `form-message ${type}`;
+    formMessage.style.display = 'block';
+    
+    // Clear message after 5 seconds
+    setTimeout(() => {
+        formMessage.style.display = 'none';
+    }, 5000);
 }
 
 // Notification function
@@ -202,7 +187,6 @@ window.addEventListener('load', () => {
 });
 
 // Parallax effect for hero section
-// Replace the parallax effect code with this:
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
@@ -225,43 +209,77 @@ document.querySelectorAll('.skill-tag').forEach(tag => {
     });
 });
 
-
+// FIXED EMAIL FUNCTIONALITY
 document.addEventListener("DOMContentLoaded", function () {
-  const contactForm = document.getElementById("contactForm");
-  const submitBtn = document.getElementById("submitBtn");
-  const btnText = submitBtn.querySelector(".btn-text");
-  const btnLoading = submitBtn.querySelector(".btn-loading");
-  const formMessage = document.getElementById("formMessage");
+    const contactForm = document.getElementById("contactForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const btnText = submitBtn.querySelector(".btn-text");
+    const btnLoading = submitBtn.querySelector(".btn-loading");
+    const formMessage = document.getElementById("formMessage");
 
-  // ✅ Initialize EmailJS with your public key
-  emailjs.init("2L3g0GULPVN3DFmt3"); // replace this
+    // ✅ Initialize EmailJS with your public key
+    // Make sure this public key is correct from your EmailJS dashboard
+    emailjs.init("2L3g0GULPVN3DFmt3");
 
-  contactForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    // Show loading spinner
-    submitBtn.disabled = true;
-    btnText.style.display = "none";
-    btnLoading.style.display = "inline-block";
+        // Get form data for validation
+        const formData = new FormData(contactForm);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const subject = formData.get('subject');
+        const message = formData.get('message');
 
-    // ✅ Send form using EmailJS
-    emailjs.sendForm("service_tmidxqs", "template_6ymm754", contactForm)
-      .then(function (response) {
-        console.log("SUCCESS!", response.status, response.text);
-        contactForm.reset();
-        showMessage("Message sent successfully! I’ll get back to you soon.", "success");
-      })
-      .catch(function (error) {
-        console.log("FAILED...", error);
-        showMessage("Failed to send message. Please try again or contact me directly.", "error");
-      })
-      .finally(function () {
-        submitBtn.disabled = false;
-        btnText.style.display = "inline";
-        btnLoading.style.display = "none";
-      });
-  });
-        
+        // Validate form data
+        if (!name || !email || !subject || !message) {
+            showMessage('Please fill in all fields', 'error');
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            showMessage('Please enter a valid email address', 'error');
+            return;
+        }
+
+        // Show loading state
+        submitBtn.disabled = true;
+        btnText.style.display = "none";
+        btnLoading.style.display = "inline-block";
+
+        // Clear any previous messages
+        formMessage.style.display = 'none';
+
+        // Prepare template parameters to match your EmailJS template
+        const templateParams = {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        };
+
+        // ✅ Send email using EmailJS
+        emailjs.send("service_tmidxqs", "template_6ymm754", templateParams)
+            .then(function (response) {
+                console.log("SUCCESS!", response.status, response.text);
+                contactForm.reset();
+                showMessage("Message sent successfully! I'll get back to you soon.", "success");
+                showNotification("Message sent successfully! I'll get back to you soon.", "success");
+            })
+            .catch(function (error) {
+                console.error("FAILED...", error);
+                showMessage("Failed to send message. Please try again or contact me directly.", "error");
+                showNotification("Failed to send message. Please try again later.", "error");
+            })
+            .finally(function () {
+                // Reset button state
+                submitBtn.disabled = false;
+                btnText.style.display = "inline";
+                btnLoading.style.display = "none";
+            });
+    });
+});
+
 // Project cards tilt effect
 document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mousemove', function(e) {
@@ -335,6 +353,25 @@ style.textContent = `
     
     .nav-link.active::after {
         width: 100%;
+    }
+    
+    .form-message {
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 4px;
+        display: none;
+    }
+    
+    .form-message.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+    
+    .form-message.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
     }
 `;
 document.head.appendChild(style);
