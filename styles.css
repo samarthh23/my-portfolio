@@ -286,7 +286,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease;
     background: linear-gradient(135deg, #f8fafc, #8b5cf6, #06b6d4);
