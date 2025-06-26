@@ -176,7 +176,7 @@ function typeWriter(element, text, speed = 100) {
 }
 
 // Initialize typing effect when page loads
-window.addEventListener('load', () => {
+/*window.addEventListener('load', () => {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
         const originalText = heroTitle.textContent;
@@ -184,7 +184,7 @@ window.addEventListener('load', () => {
             typeWriter(heroTitle, originalText, 80);
         }, 1000);
     }
-});
+});*/
 
 // Parallax effect for hero section
 window.addEventListener('scroll', () => {
