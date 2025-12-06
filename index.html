@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- Anime.js for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samarth Hegde - Portfolio</title>
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme.css">
+    
+    <!-- Icons and Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon moon-icon"></i>
+        <i class="fas fa-sun sun-icon"></i>
+    </button>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -17,12 +33,11 @@
                 <a href="#home">Samarth Hegde</a>
             </div>
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#contact" class="nav-link">Contact</a>
-
+                <a href="#home" class="nav-link" data-section="home">Home</a>
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+                <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
             </div>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -37,30 +52,36 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    Hi, I'm <span class="gradient-text">Samarth Hegde</span>
+                    <span class="title-line">Hi, I'm</span>
+                    <span class="title-line gradient-text">Samarth Hegde</span>
                 </h1>
                 <p class="hero-subtitle">Information Science Engineering Student</p>
                 <p class="hero-description">
-                     Motivated and detail-oriented Information Science Engineering student passionate about AI, Machine Learning, and building
- user-centric web applications. Eager to leverage technical skills and creative problem solving to develop scalable solutions that
- bridge innovation with real-world usability.
+                    Motivated and detail-oriented Information Science Engineering student passionate about AI, Machine Learning, and building
+                    user-centric web applications. Eager to leverage technical skills and creative problem solving to develop scalable solutions that
+                    bridge innovation with real-world usability.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Get In Touch</span>
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
                 <div class="hero-social">
-                   
-                    <a href="https://www.linkedin.com/in/samarth-hegde-41a92a280/" class="social-link" target="_blank">
+                    <a href="https://www.linkedin.com/in/samarth-hegde-41a92a280/" class="social-link" target="_blank" rel="noopener">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/samarthh23" class="social-link" target="_blank">
+                    <a href="https://github.com/samarthh23" class="social-link" target="_blank" rel="noopener">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://x.com/_samaarth_?t=utkkUyhyZpQ1nvmKv9PV3w&s=09" class="social-link" target="_blank">
+                    <a href="https://x.com/_samaarth_?t=utkkUyhyZpQ1nvmKv9PV3w&s=09" class="social-link" target="_blank" rel="noopener">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="https://www.instagram.com/samarthh.23?igsh=ZzBpemc4c2xveDZq" class="social-link" target="_blank">
+                    <a href="https://www.instagram.com/samarthh.23?igsh=ZzBpemc4c2xveDZq" class="social-link" target="_blank" rel="noopener">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </div>
@@ -68,16 +89,16 @@
             <div class="hero-image">
                 <div class="profile-card">
                     <div class="profile-img">
-                          <img src="/images/dp.png" alt="Samarth Hegde" class="profile-image">
+                        <img src="/images/dp.png" alt="Samarth Hegde" class="profile-image">
                     </div>
                     <div class="floating-elements">
-                        <div class="float-element" style="--delay: 0s;">
+                        <div class="float-element" data-delay="0">
                             <i class="fab fa-react"></i>
                         </div>
-                        <div class="float-element" style="--delay: 1s;">
+                        <div class="float-element" data-delay="1">
                             <i class="fab fa-python"></i>
                         </div>
-                        <div class="float-element" style="--delay: 2s;">
+                        <div class="float-element" data-delay="2">
                             <i class="fas fa-brain"></i>
                         </div>
                     </div>
@@ -87,17 +108,17 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about section-animate">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>
+                    <p class="fade-in-text">
                         I'm a motivated Information Science Engineering student at Vidyavardhaka College of Engineering, 
                         Mysuru, with a strong passion for artificial intelligence and machine learning. Currently maintaining 
                         an impressive CGPA of 8.97, I thrive on solving complex problems and creating innovative solutions.
                     </p>
-                    <p>
+                    <p class="fade-in-text">
                         My journey in technology has led me to work on diverse projects ranging from personalized learning 
                         dashboards to AI-powered health chatbots. I believe in leveraging technology to create meaningful 
                         impact and improve user experiences.
@@ -170,11 +191,11 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects section-animate">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-project="1">
                     <div class="project-header">
                         <div class="project-icon">
                             <i class="fas fa-chart-line"></i>
@@ -201,7 +222,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-project="2">
                     <div class="project-header">
                         <div class="project-icon">
                             <i class="fas fa-leaf"></i>
@@ -214,20 +235,19 @@
                     <div class="project-tech">
                         <span class="tech-tag">React</span>
                         <span class="tech-tag">MongoDB</span>
-                        
                         <span class="tech-tag">Node.js</span>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/samarthh23/Carbon-Offset-Calculator" class="project-link" target="_blank">
+                        <a href="https://github.com/samarthh23/Carbon-Offset-Calculator" class="project-link" target="_blank" rel="noopener">
                             <i class="fab fa-github"></i> Code
                         </a>
-                        <a href="https://carbon-offset-calculator.vercel.app/" class="project-link" target="_blank">
+                        <a href="https://carbon-offset-calculator.vercel.app/" class="project-link" target="_blank" rel="noopener">
                             <i class="fas fa-external-link-alt"></i> Live Demo
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-project="3">
                     <div class="project-header">
                         <div class="project-icon">
                             <i class="fas fa-robot"></i>
@@ -258,7 +278,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <section id="experience" class="experience section-animate">
         <div class="container">
             <h2 class="section-title">Experience & Certifications</h2>
             <div class="experience-content">
@@ -317,64 +337,64 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-    <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-content">
-            <div class="contact-info">
-                <h3>Let's Connect!</h3>
-                <p>
-                    I'm always interested in discussing new opportunities, innovative projects, 
-                    or just having a chat about technology and AI.
-                </p>
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:samarthhegde45@gmail.com">samarthhegde45@gmail.com</a>
+    <section id="contact" class="contact section-animate">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect!</h3>
+                    <p>
+                        I'm always interested in discussing new opportunities, innovative projects, 
+                        or just having a chat about technology and AI.
+                    </p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:samarthhegde45@gmail.com">samarthhegde45@gmail.com</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <a href="tel:+916362072199">+91 6362072199</a>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <a href="tel:+916362072199">+91 6362072199</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Mysuru, Karnataka, India</p>
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Mysuru, Karnataka, India</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="submitBtn">
-                        <span class="btn-text">Send Message</span>
-                        <span class="btn-loading" style="display: none;">Sending...</span>
-                    </button>
-                    <div id="formMessage" class="form-message"></div>
-                </form>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" style="display: none;">Sending...</span>
+                        </button>
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -385,10 +405,10 @@
                     <a href="mailto:samarthhegde45@gmail.com" class="social-link">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="#" class="social-link" target="_blank">
+                    <a href="https://www.linkedin.com/in/samarth-hegde-41a92a280/" class="social-link" target="_blank" rel="noopener">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="#" class="social-link" target="_blank">
+                    <a href="https://github.com/samarthh23" class="social-link" target="_blank" rel="noopener">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
@@ -396,6 +416,8 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="script.js"></script>
+    <script src="animations.js"></script>
 </body>
 </html>

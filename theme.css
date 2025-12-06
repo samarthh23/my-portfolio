@@ -1,0 +1,459 @@
+/* ===================================
+   THEME SYSTEM - BLACK & WHITE
+   Dark/Light Mode with Smooth Transitions
+   =================================== */
+
+/* CSS Variables for Theme */
+:root {
+    /* Light Mode (Default) - Black & White Theme */
+    --primary-bg: #ffffff;
+    --primary-text: #000000;
+    --secondary-bg: #f8f9fa;
+    --secondary-text: #333333;
+    --muted-text: #666666;
+    
+    --card-bg: #ffffff;
+    --card-border: #e0e0e0;
+    --card-shadow: rgba(0, 0, 0, 0.08);
+    
+    --accent-color: #000000;
+    --accent-hover: #333333;
+    --gradient-start: #000000;
+    --gradient-end: #333333;
+    
+    --border-color: #e0e0e0;
+    --border-accent: #000000;
+    
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.20);
+    
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --nav-border: rgba(0, 0, 0, 0.1);
+    
+    --input-bg: #ffffff;
+    --input-border: #e0e0e0;
+    --input-focus: #000000;
+    
+    --overlay: rgba(0, 0, 0, 0.5);
+    
+    /* Transition timing */
+    --theme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Theme */
+[data-theme="dark"] {
+    --primary-bg: #000000;
+    --primary-text: #ffffff;
+    --secondary-bg: #0a0a0a;
+    --secondary-text: #e0e0e0;
+    --muted-text: #a0a0a0;
+    
+    --card-bg: #111111;
+    --card-border: #222222;
+    --card-shadow: rgba(255, 255, 255, 0.05);
+    
+    --accent-color: #ffffff;
+    --accent-hover: #e0e0e0;
+    --gradient-start: #ffffff;
+    --gradient-end: #cccccc;
+    
+    --border-color: #222222;
+    --border-accent: #ffffff;
+    
+    --shadow-sm: 0 2px 8px rgba(255, 255, 255, 0.05);
+    --shadow-md: 0 4px 16px rgba(255, 255, 255, 0.08);
+    --shadow-lg: 0 8px 32px rgba(255, 255, 255, 0.12);
+    --shadow-hover: 0 12px 40px rgba(255, 255, 255, 0.15);
+    
+    --nav-bg: rgba(0, 0, 0, 0.95);
+    --nav-border: rgba(255, 255, 255, 0.1);
+    
+    --input-bg: #111111;
+    --input-border: #222222;
+    --input-focus: #ffffff;
+    
+    --overlay: rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth theme transitions for all elements */
+body,
+nav,
+section,
+.card,
+.project-card,
+.education-item,
+.timeline-content,
+.cert-item,
+.contact-method,
+.contact-form,
+input,
+textarea,
+button,
+.skill-tag,
+.tech-tag {
+    transition: var(--theme-transition);
+}
+
+/* Apply theme colors */
+body {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 90px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--theme-transition);
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: var(--shadow-hover);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+.theme-toggle .moon-icon,
+.theme-toggle .sun-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    transition: var(--theme-transition);
+}
+
+.theme-toggle .moon-icon {
+    color: #000000;
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle .sun-icon {
+    color: #ffffff;
+    opacity: 0;
+    transform: rotate(180deg) scale(0);
+}
+
+/* Dark mode icon states */
+[data-theme="dark"] .theme-toggle .moon-icon {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0);
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* Navigation Theme */
+.navbar {
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--nav-border);
+    backdrop-filter: blur(20px);
+}
+
+.nav-logo a {
+    color: var(--primary-text);
+}
+
+.nav-link {
+    color: var(--secondary-text);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-color);
+}
+
+.hamburger .bar {
+    background: var(--primary-text);
+}
+
+/* Hero Section Theme */
+.hero {
+    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+}
+
+.hero-title {
+    color: var(--primary-text);
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    color: var(--secondary-text);
+}
+
+.hero-description {
+    color: var(--muted-text);
+}
+
+/* Buttons Theme */
+.btn-primary {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+    border: 2px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+}
+
+/* Social Links Theme */
+.social-link {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    color: var(--accent-color);
+}
+
+.social-link:hover {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+    border-color: var(--accent-color);
+}
+
+/* Profile Card Theme */
+.profile-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow-lg);
+}
+
+.profile-image {
+    border: 4px solid var(--border-accent);
+}
+
+/* Section Backgrounds */
+.about {
+    background: var(--secondary-bg);
+}
+
+.projects {
+    background: var(--primary-bg);
+}
+
+.experience {
+    background: var(--secondary-bg);
+}
+
+.contact {
+    background: var(--primary-bg);
+}
+
+/* Section Title Theme */
+.section-title {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-title::after {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+}
+
+/* Cards Theme */
+.project-card,
+.education-item,
+.timeline-content,
+.cert-item,
+.contact-method {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow-md);
+}
+
+.project-card:hover,
+.education-item:hover,
+.timeline-content:hover,
+.cert-item:hover,
+.contact-method:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--border-accent);
+}
+
+/* Project Icon Theme */
+.project-icon {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: var(--primary-bg);
+}
+
+/* Skill & Tech Tags Theme */
+.skill-tag {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+}
+
+.tech-tag {
+    background: var(--card-bg);
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+}
+
+.tech-tag:hover {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+}
+
+/* Year Badge Theme */
+.year {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+}
+
+.grade {
+    color: var(--secondary-text);
+}
+
+/* Timeline Theme */
+.experience-timeline::before {
+    background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
+}
+
+.timeline-marker {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border: 4px solid var(--secondary-bg);
+}
+
+/* Form Elements Theme */
+.contact-form {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow-lg);
+}
+
+.form-group input,
+.form-group textarea {
+    background: var(--input-bg);
+    border: 2px solid var(--input-border);
+    color: var(--primary-text);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--muted-text);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px var(--card-shadow);
+}
+
+/* Form Message Theme */
+.form-message.success {
+    background: var(--card-bg);
+    color: var(--primary-text);
+    border: 2px solid var(--border-accent);
+}
+
+.form-message.error {
+    background: var(--card-bg);
+    color: var(--primary-text);
+    border: 2px solid var(--muted-text);
+}
+
+/* Footer Theme */
+.footer {
+    background: var(--secondary-bg);
+    border-top: 1px solid var(--border-color);
+    color: var(--primary-text);
+}
+
+/* Scrollbar Theme */
+::-webkit-scrollbar-track {
+    background: var(--secondary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
+}
+
+/* Selection Theme */
+::selection {
+    background: var(--accent-color);
+    color: var(--primary-bg);
+}
+
+/* Link Colors */
+a {
+    color: var(--accent-color);
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* Mobile Theme Toggle Position */
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: 80px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .theme-toggle .moon-icon,
+    .theme-toggle .sun-icon {
+        font-size: 1rem;
+    }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .theme-toggle {
+        transition: none;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --card-border: #000000;
+        --border-color: #000000;
+    }
+    
+    [data-theme="dark"] {
+        --card-border: #ffffff;
+        --border-color: #ffffff;
+    }
+}
