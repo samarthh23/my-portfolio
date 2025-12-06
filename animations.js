@@ -634,24 +634,28 @@ document.addEventListener("DOMContentLoaded", function () {
         delay: anime.stagger(50),
         easing: 'easeInExpo'
     }, '+=400')
+
     // Step 6: Fade out loader
     .add({
         targets: '.intro-loader',
         opacity: 0,
         duration: 400
     }, '-=600')
+
       // Step 7: Slide overlay up
-      .add({
-        targets: ".intro-overlay",
-        translateY: "-100%",
+    .add({
+        targets: '.intro-overlay',
+        translateY: '-100%',
         duration: 800,
-        easing: "easeInExpo",
+        easing: 'easeInExpo',
         complete: () => {
-          introOverlay.remove();
-          // Start main animations
-          initializeAnimations();
-        },
-      });
+            introOverlay.remove();
+            // Show main content
+            document.body.classList.add('intro-complete');
+            // Start main animations
+            initializeAnimations();
+        }
+    });
   }
 
   // ==========================================
@@ -678,12 +682,16 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("🎨 Anime.js animations initialized");
   }
 
-  // ==========================================
-  // INITIALIZE ON LOAD
-  // ==========================================
+// ==========================================
+// INITIALIZE ON LOAD
+// ==========================================
 
-  // Start with intro animation
-  createIntroAnimation();
+// Show body immediately
+document.body.classList.add('loaded');
+
+// Start with intro animation
+createIntroAnimation();
+
 });
 
 /**
