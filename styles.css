@@ -827,6 +827,8 @@ section {
    INTRO LOADING ANIMATION
    =================================== */
 
+
+
 .intro-overlay {
     position: fixed;
     top: 0;
@@ -858,6 +860,12 @@ section {
     display: inline-block;
     opacity: 0;
     color: var(--primary-text);
+}
+
+.intro-space {
+    display: inline-block;
+    width: 1rem;
+    opacity: 0;
 }
 
 .intro-tagline {

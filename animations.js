@@ -564,8 +564,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function createIntroAnimation() {
     // Create intro overlay
-    const introOverlay = document.createElement("div");
-    introOverlay.className = "intro-overlay";
+    const introOverlay = document.createElement('div');
+    introOverlay.className = 'intro-overlay';
     introOverlay.innerHTML = `
         <div class="intro-content">
             <h1 class="intro-name">
@@ -576,8 +576,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 <span class="intro-letter">R</span>
                 <span class="intro-letter">T</span>
                 <span class="intro-letter">H</span>
+                <span class="intro-space"> </span>
+                <span class="intro-letter">H</span>
+                <span class="intro-letter">E</span>
+                <span class="intro-letter">G</span>
+                <span class="intro-letter">D</span>
+                <span class="intro-letter">E</span>
             </h1>
-            <div class="intro-tagline">Full-Stack Engineer</div>
             <div class="intro-loader"></div>
         </div>
     `;
@@ -605,15 +610,7 @@ document.addEventListener("DOMContentLoaded", function () {
         delay: anime.stagger(80),
       })
       // Step 3: Show tagline
-      .add(
-        {
-          targets: ".intro-tagline",
-          opacity: [0, 1],
-          translateY: [30, 0],
-          duration: 600,
-        },
-        "-=400"
-      )
+      
       // Step 4: Animate loader
       .add(
         {
@@ -626,29 +623,23 @@ document.addEventListener("DOMContentLoaded", function () {
         "-=200"
       )
       // Step 5: Letters explode out
-      .add(
-        {
-          targets: ".intro-letter",
-          opacity: [1, 0],
-          translateY: [0, -100],
-          translateX: () => anime.random(-200, 200),
-          rotate: () => anime.random(-45, 45),
-          scale: [1, 0.5],
-          duration: 800,
-          delay: anime.stagger(50),
-          easing: "easeInExpo",
-        },
-        "+=400"
-      )
-      // Step 6: Fade out tagline and loader
-      .add(
-        {
-          targets: ".intro-tagline, .intro-loader",
-          opacity: 0,
-          duration: 400,
-        },
-        "-=600"
-      )
+    .add({
+        targets: '.intro-letter',
+        opacity: [1, 0],
+        translateY: [0, -100],
+        translateX: () => anime.random(-200, 200),
+        rotate: () => anime.random(-45, 45),
+        scale: [1, 0.5],
+        duration: 800,
+        delay: anime.stagger(50),
+        easing: 'easeInExpo'
+    }, '+=400')
+    // Step 6: Fade out loader
+    .add({
+        targets: '.intro-loader',
+        opacity: 0,
+        duration: 400
+    }, '-=600')
       // Step 7: Slide overlay up
       .add({
         targets: ".intro-overlay",
