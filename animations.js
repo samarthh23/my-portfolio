@@ -9,7 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Check if anime.js is loaded
     if (typeof anime === 'undefined') {
-        console.error('Anime.js is not loaded');
+        console.error('Anime.js is not loaded - content will display without animations');
+        // Make sure content is visible even without animations
+        document.querySelectorAll('.hero-content, .hero-title .title-line, .hero-subtitle, .hero-description, .hero-buttons, .hero-social').forEach(el => {
+            el.style.opacity = '1';
+        });
         return;
     }
 
@@ -585,7 +589,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ==========================================
     
     // Uncomment to enable cursor trail effect
-    /*
+    
     let cursorTrail = [];
     const trailLength = 20;
     
@@ -595,7 +599,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cursorTrail.shift();
         }
     });
-    */
+    
 
 });
 

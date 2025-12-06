@@ -1,423 +1,552 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
+
     <!-- Anime.js for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Samarth Hegde - Portfolio</title>
-    
+
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="theme.css">
-    
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="theme.css" />
+
     <!-- Icons and Fonts -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon moon-icon"></i>
-        <i class="fas fa-sun sun-icon"></i>
+      <i class="fas fa-moon moon-icon"></i>
+      <i class="fas fa-sun sun-icon"></i>
     </button>
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">Samarth Hegde</a>
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link" data-section="home">Home</a>
-                <a href="#about" class="nav-link" data-section="about">About</a>
-                <a href="#projects" class="nav-link" data-section="projects">Projects</a>
-                <a href="#experience" class="nav-link" data-section="experience">Experience</a>
-                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="#home">Samarth Hegde</a>
         </div>
+        <div class="nav-menu" id="nav-menu">
+          <a href="#home" class="nav-link" data-section="home">Home</a>
+          <a href="#about" class="nav-link" data-section="about">About</a>
+          <a href="#projects" class="nav-link" data-section="projects"
+            >Projects</a
+          >
+          <a href="#experience" class="nav-link" data-section="experience"
+            >Experience</a
+          >
+          <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="title-line">Hi, I'm</span>
-                    <span class="title-line gradient-text">Samarth Hegde</span>
-                </h1>
-                <p class="hero-subtitle">Information Science Engineering Student</p>
-                <p class="hero-description">
-                    Motivated and detail-oriented Information Science Engineering student passionate about AI, Machine Learning, and building
-                    user-centric web applications. Eager to leverage technical skills and creative problem solving to develop scalable solutions that
-                    bridge innovation with real-world usability.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <span>View My Work</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <span>Get In Touch</span>
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-                <div class="hero-social">
-                    <a href="https://www.linkedin.com/in/samarth-hegde-41a92a280/" class="social-link" target="_blank" rel="noopener">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/samarthh23" class="social-link" target="_blank" rel="noopener">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://x.com/_samaarth_?t=utkkUyhyZpQ1nvmKv9PV3w&s=09" class="social-link" target="_blank" rel="noopener">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://www.instagram.com/samarthh.23?igsh=ZzBpemc4c2xveDZq" class="social-link" target="_blank" rel="noopener">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="profile-card">
-                    <div class="profile-img">
-                        <img src="/images/dp.png" alt="Samarth Hegde" class="profile-image">
-                    </div>
-                    <div class="floating-elements">
-                        <div class="float-element" data-delay="0">
-                            <i class="fab fa-react"></i>
-                        </div>
-                        <div class="float-element" data-delay="1">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <div class="float-element" data-delay="2">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="title-line">Hi, I'm</span>
+            <span class="title-line gradient-text">Samarth Hegde</span>
+          </h1>
+          <p class="hero-subtitle">Information Science Engineering Student</p>
+          <p class="hero-description">
+            Full-stack engineer specializing in modern frontend development with
+            React and scalable backend systems using Node.js and MongoDB.
+            Experienced in building real-time, API-driven applications with
+            strong problem-solving skills and clean architecture practices.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+              <span>View My Work</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Get In Touch</span>
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+          <div class="hero-social">
+            <a
+              href="https://www.linkedin.com/in/samarth-hegde-41a92a280/"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/samarthh23"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://leetcode.com/u/_samaarth_/"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fas fa-code"></i>
+            </a>
+            <a
+              href="https://x.com/_samaarth_?t=utkkUyhyZpQ1nvmKv9PV3w&s=09"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/samarthh.23?igsh=ZzBpemc4c2xveDZq"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
         </div>
+        <div class="hero-image">
+          <div class="profile-card">
+            <div class="profile-img">
+              <img
+                src="/images/dp.png"
+                alt="Samarth Hegde"
+                class="profile-image"
+              />
+            </div>
+            <div class="floating-elements">
+              <div class="float-element" data-delay="0">
+                <i class="fab fa-react"></i>
+              </div>
+              <div class="float-element" data-delay="1">
+                <i class="fab fa-python"></i>
+              </div>
+              <div class="float-element" data-delay="2">
+                <i class="fas fa-brain"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about section-animate">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="fade-in-text">
-                        I'm a motivated Information Science Engineering student at Vidyavardhaka College of Engineering, 
-                        Mysuru, with a strong passion for artificial intelligence and machine learning. Currently maintaining 
-                        an impressive CGPA of 8.97, I thrive on solving complex problems and creating innovative solutions.
-                    </p>
-                    <p class="fade-in-text">
-                        My journey in technology has led me to work on diverse projects ranging from personalized learning 
-                        dashboards to AI-powered health chatbots. I believe in leveraging technology to create meaningful 
-                        impact and improve user experiences.
-                    </p>
-                    
-                    <div class="skills-section">
-                        <h3>Technical Skills</h3>
-                        <div class="skills-grid">
-                            <div class="skill-category">
-                                <h4>Programming</h4>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Python</span>
-                                    <span class="skill-tag">JavaScript</span>
-                                    <span class="skill-tag">React</span>
-                                    <span class="skill-tag">SQL</span>
-                                    <span class="skill-tag">C++</span>
-                                </div>
-                            </div>
-                            <div class="skill-category">
-                                <h4>Web Technologies</h4>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">HTML</span>
-                                    <span class="skill-tag">CSS</span>
-                                    <span class="skill-tag">Node.js</span>
-                                    <span class="skill-tag">MongoDB</span>
-                                </div>
-                            </div>
-                            <div class="skill-category">
-                                <h4>Tools & Platforms</h4>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Git</span>
-                                    <span class="skill-tag">Docker</span>
-                                    <span class="skill-tag">Jenkins</span>
-                                    <span class="skill-tag">AWS</span>
-                                    <span class="skill-tag">Figma</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="education-section">
-                    <h3>Education</h3>
-                    <div class="education-item">
-                        <div class="education-header">
-                            <h4>Bachelor of Engineering - Information Science</h4>
-                            <span class="year">2022-2026</span>
-                        </div>
-                        <p class="institution"><b>Vidyavardhaka College of Engineering, Mysuru</b></p>
-                        <p class="grade">CGPA: 8.97</p>
-                    </div>
-                    <div class="education-item">
-                        <div class="education-header">
-                            <h4>Pre-University College</h4>
-                            <span class="year">2020-2022</span>
-                        </div>
-                        <p class="institution"><b>BASE PU College, Mysuru</b></p>
-                        <p class="grade">Result: 91%</p>
-                    </div>
-                    <div class="education-item">
-                        <div class="education-header">
-                            <h4>School (10th Grade)</h4>
-                            <span class="year">2020</span>
-                        </div>
-                        <p class="institution"><b>Christ Public School, Mysuru</b></p>
-                        <p class="grade">Result: 89%</p>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p class="fade-in-text">
+              I'm a full-stack engineer and Information Science Engineering
+              student at Vidyavardhaka College of Engineering, Mysuru,
+              specializing in modern frontend development with React and
+              scalable backend systems. Currently maintaining a CGPA of 8.94, I
+              thrive on building real-time, API-driven applications with clean
+              architecture.
+            </p>
+            <p class="fade-in-text">
+              My journey in technology spans from real-time chat systems to
+              AI-powered SaaS platforms. I'm a finalist at IIT Madras EDD Enigma
+              2025 and have solved 130+ LeetCode problems, demonstrating strong
+              problem-solving skills and algorithmic thinking.
+            </p>
+
+            <div class="skill-category">
+              <h4>Programming</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">C++</span>
+              </div>
             </div>
+            <div class="skill-category">
+              <h4>Frontend</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Tailwind CSS</span>
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>Backend</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Express</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">JWT/OAuth2</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>Databases</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">MySQL</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>DevOps & Cloud</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">GitHub Actions</span>
+                <span class="skill-tag">Google Cloud</span>
+                <span class="skill-tag">Git</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>Tools</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Postman</span>
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Socket.io</span>
+              </div>
+            </div>
+          </div>
+          <div class="education-section">
+            <h3>Education</h3>
+            <div class="education-item">
+              <div class="education-header">
+                <h4>Bachelor of Engineering - Information Science</h4>
+                <span class="year">2022-2026</span>
+              </div>
+              <p class="institution">
+                <b>Vidyavardhaka College of Engineering, Mysuru</b>
+              </p>
+              <p class="grade">CGPA: 8.94</p>
+            </div>
+            <div class="education-item">
+              <div class="education-header">
+                <h4>Pre-University College</h4>
+                <span class="year">2020-2022</span>
+              </div>
+              <p class="institution"><b>BASE PU College, Mysuru</b></p>
+              <p class="grade">Result: 91%</p>
+            </div>
+            <div class="education-item">
+              <div class="education-header">
+                <h4>School (10th Grade)</h4>
+                <span class="year">2020</span>
+              </div>
+              <p class="institution"><b>Christ Public School, Mysuru</b></p>
+              <p class="grade">Result: 89%</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="projects section-animate">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" data-project="1">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>SkillHub - Learning Dashboard</h3>
-                    </div>
-                    <p class="project-description">
-                        A web-based learning dashboard with personalized course recommendations, progress tracking, 
-                        and goal-setting features. Built with React.js, Node.js, and Firebase.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React.js</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Chart.js</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-project="2">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h3>Carbon Offset Calculator</h3>
-                    </div>
-                    <p class="project-description">
-                        React-based web application developed during the INFOTHON hackathon to calculate carbon footprints and recommend offset strategies. Deployed on Vercel with a MongoDB backend for data storage.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Node.js</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/samarthh23/Carbon-Offset-Calculator" class="project-link" target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                        <a href="https://carbon-offset-calculator.vercel.app/" class="project-link" target="_blank" rel="noopener">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-project="3">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>AI Health Chatbot</h3>
-                    </div>
-                    <p class="project-description">
-                        AI-powered health chatbot using NLP and ML techniques for real-time medical information 
-                        and wellness tracking. Developed during IBM SkillsBuild internship.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Healthcare APIs</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                        <a href="#" class="project-link">
-                            <i class="fas fa-external-link-alt"></i> Demo
-                        </a>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card" data-project="1">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+              <h3>ChatFlow - Real-Time Chat Application</h3>
             </div>
+            <p class="project-description">
+              Real-time chat system using Socket.io, supporting over 150
+              concurrent connections with instant message delivery and typing
+              indicators. Features secure JWT authentication, responsive React
+              interface, and deployed using Docker & GitHub Actions.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Socket.io</span>
+              <span class="tech-tag">JWT</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/samarthh23"
+                class="project-link"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i> Code
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card" data-project="2">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-image"></i>
+              </div>
+              <h3>VisionForge - AI Text-to-Image SaaS</h3>
+            </div>
+            <p class="project-description">
+              AI-driven SaaS platform enabling users to generate high-quality
+              images from text prompts using OpenAI's API. Features secure
+              authentication, prompt history tracking, and optimized backend
+              with rate limiting and caching, reducing redundant API calls by
+              over 25%.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">OpenAI API</span>
+              <span class="tech-tag">JWT</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/samarthh23"
+                class="project-link"
+                target="_blank"
+              >
+                <i class="fab fa-github"></i> Code
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card" data-project="3">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <h3>AI Health Chatbot</h3>
+            </div>
+            <p class="project-description">
+              AI-powered health chatbot using NLP and ML techniques for
+              real-time medical information and wellness tracking. Developed
+              during IBM SkillsBuild internship.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">NLP</span>
+              <span class="tech-tag">Machine Learning</span>
+              <span class="tech-tag">Healthcare APIs</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">
+                <i class="fab fa-github"></i> Code
+              </a>
+              <a href="#" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Demo
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Experience Section -->
     <section id="experience" class="experience section-animate">
-        <div class="container">
-            <h2 class="section-title">Experience & Certifications</h2>
-            <div class="experience-content">
-                <div class="experience-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>IBM SkillsBuild Internship</h3>
-                            <p class="timeline-date">July 2024</p>
-                            <p class="timeline-description">
-                                Developed an AI-powered health chatbot using NLP and ML techniques. 
-                                Collaborated with cross-functional teams to ensure healthcare standards compliance.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Finlatics AI Internship</h3>
-                            <p class="timeline-date">2024-2025</p>
-                            <p class="timeline-description">
-                                Machine Learning Program focusing on practical applications of AI in financial technology.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="certifications">
-                    <h3>Certifications</h3>
-                    <div class="cert-grid">
-                        <div class="cert-item">
-                            <i class="fab fa-google"></i>
-                            <div>
-                                <h4>Google Cloud Career Launchpad</h4>
-                                <p>Cloud Engineer & Data Analytics Track</p>
-                            </div>
-                        </div>
-                        <div class="cert-item">
-                            <i class="fas fa-database"></i>
-                            <div>
-                                <h4>Introduction to MongoDB</h4>
-                                <p>MongoDB Inc.</p>
-                            </div>
-                        </div>
-                        <div class="cert-item">
-                            <i class="fab fa-ibm"></i>
-                            <div>
-                                <h4>IBM SkillsBuild</h4>
-                                <p>CSRBOX Program</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="section-title">Experience & Certifications</h2>
+        <div class="experience-content">
+          <div class="experience-timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h3>IBM SkillsBuild - CSRBOX</h3>
+                <p class="timeline-date">July 2024</p>
+                <p class="timeline-description">
+                  Engineered an NLP-driven health chatbot using Python and Flask
+                  with accurate symptom parsing and context-aware responses.
+                  Developed RESTful APIs with secure data workflows for user
+                  sessions. Refined text-classification pipelines to improve
+                  response relevance during prototype evaluations.
+                </p>
+              </div>
             </div>
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <h3>Finlatics AI Internship</h3>
+                <p class="timeline-date">2024-2025</p>
+                <p class="timeline-description">
+                  Machine Learning Program focusing on practical applications of
+                  AI in financial technology.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="certifications">
+            <h3>Certifications</h3>
+            <div class="cert-grid">
+              <div class="cert-item">
+                <i class="fab fa-google"></i>
+                <div>
+                  <h4>Google Cloud Career Launchpad</h4>
+                  <p>Cloud Engineer & Data Analytics Track</p>
+                </div>
+              </div>
+              <div class="cert-item">
+                <i class="fas fa-database"></i>
+                <div>
+                  <h4>Introduction to MongoDB</h4>
+                  <p>MongoDB Inc.</p>
+                </div>
+              </div>
+              <div class="cert-item">
+                <i class="fab fa-ibm"></i>
+                <div>
+                  <h4>IBM SkillsBuild</h4>
+                  <p>CSRBOX Program</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact section-animate">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Connect!</h3>
-                    <p>
-                        I'm always interested in discussing new opportunities, innovative projects, 
-                        or just having a chat about technology and AI.
-                    </p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:samarthhegde45@gmail.com">samarthhegde45@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Phone</h4>
-                                <a href="tel:+916362072199">+91 6362072199</a>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Mysuru, Karnataka, India</p>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Let's Connect!</h3>
+            <p>
+              I'm always interested in discussing new opportunities, innovative
+              projects, or just having a chat about technology and AI.
+            </p>
+            <div class="contact-methods">
+              <div class="contact-method">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <h4>Email</h4>
+                  <a href="mailto:samarthhegde45@gmail.com"
+                    >samarthhegde45@gmail.com</a
+                  >
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="submitBtn">
-                            <span class="btn-text">Send Message</span>
-                            <span class="btn-loading" style="display: none;">Sending...</span>
-                        </button>
-                        <div id="formMessage" class="form-message"></div>
-                    </form>
+              </div>
+              <div class="contact-method">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <h4>Phone</h4>
+                  <a href="tel:+916362072199">+91 6362072199</a>
                 </div>
+              </div>
+              <div class="contact-method">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <h4>Location</h4>
+                  <p>Mysuru, Karnataka, India</p>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="Subject"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Your Message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" id="submitBtn">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-loading" style="display: none"
+                  >Sending...</span
+                >
+              </button>
+              <div id="formMessage" class="form-message"></div>
+            </form>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Samarth Hegde. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="mailto:samarthhegde45@gmail.com" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/samarth-hegde-41a92a280/" class="social-link" target="_blank" rel="noopener">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/samarthh23" class="social-link" target="_blank" rel="noopener">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; 2025 Samarth Hegde. All rights reserved.</p>
+          <div class="footer-social">
+            <a href="mailto:samarthhegde45@gmail.com" class="social-link">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/samarth-hegde-41a92a280/"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/samarthh23"
+              class="social-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
         </div>
+      </div>
     </footer>
 
     <!-- Scripts -->
     <script src="script.js"></script>
     <script src="animations.js"></script>
-</body>
+  </body>
 </html>

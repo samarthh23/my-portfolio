@@ -196,7 +196,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-content {
-    opacity: 0;
+    /* Remove opacity: 0 - let animations.js handle this */
 }
 
 .hero-title {
@@ -207,21 +207,21 @@ h1, h2, h3, h4 {
 
 .hero-title .title-line {
     display: block;
-    opacity: 0;
+    /* Opacity will be animated by animations.js */
 }
 
 .hero-subtitle {
     font-size: 1.3rem;
     margin-bottom: 1rem;
     font-weight: 600;
-    opacity: 0;
+    /* Opacity will be animated by animations.js */
 }
 
 .hero-description {
     font-size: 1.1rem;
     margin-bottom: 2rem;
     line-height: 1.8;
-    opacity: 0;
+    /* Opacity will be animated by animations.js */
 }
 
 .hero-buttons {
@@ -229,14 +229,14 @@ h1, h2, h3, h4 {
     gap: 1rem;
     margin-bottom: 2rem;
     flex-wrap: wrap;
-    opacity: 0;
+    /* Opacity will be animated by animations.js */
 }
 
 .hero-social {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-    opacity: 0;
+    /* Opacity will be animated by animations.js */
 }
 
 .social-link {
