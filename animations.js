@@ -545,61 +545,127 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ==========================================
-    // PAGE LOAD ANIMATION SEQUENCE
-    // ==========================================
-    
-    function initializeAnimations() {
-        // Hero animations
-        animateHeroTitle();
-        animateHeroContent();
-        animateProfileCard();
-        
-        // Interactive animations
-        setupButtonAnimations();
-        setupProjectCardAnimations();
-        setupSocialLinkAnimations();
-        setupNavLinkAnimations();
-        setupSkillTagAnimations();
-        setupFormAnimations();
-        
-        // Footer animation
-        animateFooter();
-        
-        console.log('🎨 Anime.js animations initialized');
-    }
+// INTRO LOADING ANIMATION
+// ==========================================
 
-    // ==========================================
-    // LOADING ANIMATION
-    // ==========================================
+function createIntroAnimation() {
+    // Create intro overlay
+    const introOverlay = document.createElement('div');
+    introOverlay.className = 'intro-overlay';
+    introOverlay.innerHTML = `
+        <div class="intro-content">
+            <h1 class="intro-name">
+                <span class="intro-letter">S</span>
+                <span class="intro-letter">A</span>
+                <span class="intro-letter">M</span>
+                <span class="intro-letter">A</span>
+                <span class="intro-letter">R</span>
+                <span class="intro-letter">T</span>
+                <span class="intro-letter">H</span>
+            </h1>
+            <div class="intro-tagline">Full-Stack Engineer</div>
+            <div class="intro-loader"></div>
+        </div>
+    `;
+    document.body.appendChild(introOverlay);
     
-    // Animate page load
-    anime({
-        targets: 'body',
+    // Animate intro sequence
+    const timeline = anime.timeline({
+        easing: 'easeOutExpo'
+    });
+    
+    // Step 1: Fade in overlay
+    timeline.add({
+        targets: '.intro-overlay',
         opacity: [0, 1],
-        duration: 600,
-        easing: 'easeOutQuad',
+        duration: 400
+    })
+    // Step 2: Animate letters in
+    .add({
+        targets: '.intro-letter',
+        opacity: [0, 1],
+        translateY: [50, 0],
+        scale: [0.5, 1],
+        duration: 800,
+        delay: anime.stagger(80)
+    })
+    // Step 3: Show tagline
+    .add({
+        targets: '.intro-tagline',
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 600
+    }, '-=400')
+    // Step 4: Animate loader
+    .add({
+        targets: '.intro-loader',
+        opacity: [0, 1],
+        scaleX: [0, 1],
+        duration: 800,
+        easing: 'easeInOutQuad'
+    }, '-=200')
+    // Step 5: Letters explode out
+    .add({
+        targets: '.intro-letter',
+        opacity: [1, 0],
+        translateY: [0, -100],
+        translateX: () => anime.random(-200, 200),
+        rotate: () => anime.random(-45, 45),
+        scale: [1, 0.5],
+        duration: 800,
+        delay: anime.stagger(50),
+        easing: 'easeInExpo'
+    }, '+=400')
+    // Step 6: Fade out tagline and loader
+    .add({
+        targets: '.intro-tagline, .intro-loader',
+        opacity: 0,
+        duration: 400
+    }, '-=600')
+    // Step 7: Slide overlay up
+    .add({
+        targets: '.intro-overlay',
+        translateY: '-100%',
+        duration: 800,
+        easing: 'easeInExpo',
         complete: () => {
-            // Initialize all animations after fade in
+            introOverlay.remove();
+            // Start main animations
             initializeAnimations();
         }
     });
+}
 
-    // ==========================================
-    // CUSTOM CURSOR TRAIL (Optional Enhancement)
-    // ==========================================
+// ==========================================
+// PAGE LOAD ANIMATION SEQUENCE
+// ==========================================
+
+function initializeAnimations() {
+    // Hero animations
+    animateHeroTitle();
+    animateHeroContent();
+    animateProfileCard();
     
-    // Uncomment to enable cursor trail effect
+    // Interactive animations
+    setupButtonAnimations();
+    setupProjectCardAnimations();
+    setupSocialLinkAnimations();
+    setupNavLinkAnimations();
+    setupSkillTagAnimations();
+    setupFormAnimations();
     
-    let cursorTrail = [];
-    const trailLength = 20;
+    // Footer animation
+    animateFooter();
     
-    document.addEventListener('mousemove', (e) => {
-        cursorTrail.push({x: e.clientX, y: e.clientY});
-        if (cursorTrail.length > trailLength) {
-            cursorTrail.shift();
-        }
-    });
-    
+    console.log('🎨 Anime.js animations initialized');
+}
+
+// ==========================================
+// INITIALIZE ON LOAD
+// ==========================================
+
+// Start with intro animation
+createIntroAnimation();
 
 });
 
