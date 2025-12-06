@@ -949,3 +949,54 @@ section {
     width: 120px;
   }
 }
+
+/* ===================================
+   HIDE ELEMENTS BEFORE SCROLL ANIMATION
+   =================================== */
+
+/* About Section */
+.about-text p,
+.skill-tag,
+.education-item {
+    opacity: 0;
+}
+
+/* Projects Section */
+.project-card {
+    opacity: 0;
+}
+
+/* Experience Section */
+.timeline-item,
+.timeline-marker,
+.cert-item {
+    opacity: 0;
+}
+
+/* Contact Section */
+.contact-method,
+.contact-form,
+.form-group {
+    opacity: 0;
+}
+
+/* Section Titles */
+.section-title {
+    opacity: 0;
+}
+
+/* After intro completes, make them animatable */
+body.intro-complete .about-text p,
+body.intro-complete .skill-tag,
+body.intro-complete .education-item,
+body.intro-complete .project-card,
+body.intro-complete .timeline-item,
+body.intro-complete .timeline-marker,
+body.intro-complete .cert-item,
+body.intro-complete .contact-method,
+body.intro-complete .contact-form,
+body.intro-complete .form-group,
+body.intro-complete .section-title {
+    /* Keep opacity 0, animations will handle it */
+    opacity: 0;
+}
